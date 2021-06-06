@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feedback summarization</title>
+    </head>
+    <body>
+      <form action="/submit" method="post" enctype="multipart/form-data">
+        <tr><input class="upload-btn" type="file" name="cie_file" style="padding-bottom: 15px"></tr>
+        <tr><input class="upload-btn" type="file" name="student_feedback_file" style="padding-bottom: 15px"></tr>
+        <tr><input class="upload-btn" type="file" name="teacher_feedback_file" style="padding-bottom: 15px"></tr>
+        <tr><input class="process-btn" type="submit" value="Process"></tr>
+      </form>
+        <input type="file" id="csvFileInput" style="padding-bottom: 15px">
+        <table id="csvRoot"></table>
+
+        
+        <script src="script.js" ></script>
+    </body>
+</html>
