@@ -486,7 +486,6 @@ create_decision_tree3(mapping_mark_fdbk3)
 # if os.path.exists("tree3.pdf"):
 #   os.remove("tree3.pdf")
 
-<<<<<<< HEAD
 """try"""
 
 import matplotlib.pyplot as plt
@@ -516,7 +515,6 @@ ax.set_title('Correlation Matrix Plot')
 # Uncomment for saving/downloading the Heatmap 
 figure = ax.get_figure()    
 figure.savefig('./public/graphs/Correlation-Matrix-Plot.png', dpi=400)
-=======
 """correlation matrix"""
 
 def correlation_mat():
@@ -546,4 +544,3 @@ def correlation_mat():
   figure = ax.get_figure()    
   figure.savefig('Correlation-Matrix-Plot.png', dpi=400)
 correlation_mat()
->>>>>>> 3abea0b49d67b90c212be836bc6eae3e34188ae3
