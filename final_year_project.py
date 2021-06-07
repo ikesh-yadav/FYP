@@ -56,6 +56,8 @@ import os
 import string
 import copy
 import sys
+from pandas.plotting import scatter_matrix
+from pylab import savefig
 
 """Importing Data"""
 
@@ -292,7 +294,7 @@ def draw_graph(avg_list):
   plot.xlabel("Topics of a Subject")
   plot.ylabel("Average Feedback Rating")
   plot.title("Class Feedback Rating Topic Wise")
-  plot.show()
+  plot.savefig('./graphs/bar_chart.png',dpi=400)
 #print(s_fd)
 ss_fd = copy.deepcopy(s_fd)
 avg_list = feedback_summarization_class_wise(ss_fd)
@@ -505,32 +507,32 @@ create_decision_tree3(mapping_mark_fdbk3)
 # if os.path.exists("tree3.pdf"):
 #   os.remove("tree3.pdf")
 
-"""try"""
+"""correlation matrix"""
 
-import matplotlib.pyplot as plt
-from pandas.plotting import scatter_matrix
-import seaborn as sns
-from pylab import savefig
-data =mapping_marks_fdbk()
-#data = a.iloc[:,:-1]
-print(data)
-corr = data.corr()
-flatui = ["#9b59b6", "#3498db", "#95a5a6", "#e74c3c", "#34495e", "#2ecc71"]
-fig, ax = plt.subplots(figsize=(10,10))
-ax = sns.heatmap(
-    corr 
-    # , vmin=-1, vmax=1, center=0,
-    # square=True,
-    # annot=True,
-    # cmap = sns.cubehelix_palette(8),   
-)
-# ax.set_xticklabels(
-#     ax.get_xticklabels(),
-#     rotation=45,
-#     horizontalalignment='right'
-# );
+def correlation_mat():
+  data =mapping_marks_fdbk3()
+  data["answer"].replace(to_replace=['right', 'wrong'], value=[1,0], inplace=True)
+  data["feedback_student"].replace(to_replace=['bad', 'average', 'good'], value=[1, 2, 3], inplace=True)
+  data["feedback_teacher"].replace(to_replace=['bad', 'average', 'good'], value=[1, 2, 3], inplace=True)
+  corr = data.corr()
+  #print(corr)
+  flatui = ["#9b59b6", "#3498db", "#95a5a6", "#e74c3c", "#34495e", "#2ecc71"]
+  fig, ax = plot.subplots(figsize=(10,10))
+  ax = sns.heatmap(
+        corr,
+      vmin=-1, vmax=1, center=0,
+      square=True,
+      annot=True,
+      cmap = sns.cubehelix_palette(8),   
+  )
+  # ax.set_xticklabels(
+  #     ax.get_xticklabels(),
+  #     rotation=45,
+  #     horizontalalignment='right'
+  # );
 
-ax.set_title('Correlation Matrix Plot')
-# Uncomment for saving/downloading the Heatmap 
-figure = ax.get_figure()    
-figure.savefig('./graphs/Correlation-Matrix-Plot.png', dpi=400)
+  ax.set_title('Correlation Matrix Plot')
+  # Uncomment for saving/downloading the Heatmap 
+  figure = ax.get_figure()    
+  figure.savefig('Correlation-Matrix-Plot.png', dpi=400)
+correlation_mat()
