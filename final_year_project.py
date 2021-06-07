@@ -7,28 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1CpJpi-SBSg1zQ2yA_jl59wlYogh1pu6U
 """
 
-# !pip install anvil-uplink
-
-# import anvil.server
-# import pandas as pd
-# from io import StringIO
-
-# anvil.server.connect("NMXF5XBVYX4M6LBKGTRXXJPP-CVYSMTL6Y7RM4H5Y")
-
-# @anvil.server.callable
-# def func(studentanswer):
-  
-
-#   s=str(studentanswer,'utf-8')
-
-#   data = StringIO(s) 
-
-#   df=pd.read_csv(data)
-
-#   return df
-
-# anvil.server.wait_forever()
-
 """#Data Extraction
 
 All libraries used:
@@ -292,7 +270,7 @@ def draw_graph(avg_list):
   plot.xlabel("Topics of a Subject")
   plot.ylabel("Average Feedback Rating")
   plot.title("Class Feedback Rating Topic Wise")
-  plot.show()
+  #plot.show()
 #print(s_fd)
 ss_fd = copy.deepcopy(s_fd)
 avg_list = feedback_summarization_class_wise(ss_fd)
@@ -365,10 +343,10 @@ def create_decision_tree(mapping_mark_fdbk):
   export_graphviz(dtree, out_file=dot_data ,feature_names = feat_names, class_names= True,  filled=True, rounded=True, special_characters=True)
   graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
   #graph.write_png('/tree.png')
-  Image(graph.create_png())
-  graph.write_pdf("./graphs/tree1.pdf")
+  #Image(graph.create_png())
+  graph.write_pdf("./public/graphs/tree1.pdf")
 # Create PNG
-  graph.write_png("./graphs/tree1.png")
+  graph.write_png("./public/graphs/tree1.png")
 
 mapping_mark_fdbk=mapping_marks_fdbk()
 create_decision_tree(mapping_mark_fdbk)
@@ -482,9 +460,9 @@ def create_decision_tree3(mapping_mark_fdbk3):
   export_graphviz(dtree, out_file=dot_data ,feature_names = feat_names, class_names= True,  filled=True, rounded=True, special_characters=True)
   graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
   #graph.write_png('/tree.png')
-  Image(graph.create_png())
-  graph.write_pdf("./graphs/tree3.pdf")
-  graph.write_png("./graphs/tree3.png")
+  #Image(graph.create_png())
+  graph.write_pdf("./public/graphs/tree3.pdf")
+  graph.write_png("./public/graphs/tree3.png")
 
 mapping_mark_fdbk3=mapping_marks_fdbk3()
 create_decision_tree3(mapping_mark_fdbk3)
@@ -518,19 +496,19 @@ corr = data.corr()
 flatui = ["#9b59b6", "#3498db", "#95a5a6", "#e74c3c", "#34495e", "#2ecc71"]
 fig, ax = plt.subplots(figsize=(10,10))
 ax = sns.heatmap(
-    corr 
-    # , vmin=-1, vmax=1, center=0,
-    # square=True,
-    # annot=True,
-    # cmap = sns.cubehelix_palette(8),   
+    corr,
+    vmin=-1, vmax=1, center=0,
+    square=True,
+    annot=True,
+    cmap = sns.cubehelix_palette(8),   
 )
-# ax.set_xticklabels(
-#     ax.get_xticklabels(),
-#     rotation=45,
-#     horizontalalignment='right'
-# );
+ax.set_xticklabels(
+    ax.get_xticklabels(),
+    rotation=45,
+    horizontalalignment='right'
+);
 
 ax.set_title('Correlation Matrix Plot')
 # Uncomment for saving/downloading the Heatmap 
 figure = ax.get_figure()    
-figure.savefig('./graphs/Correlation-Matrix-Plot.png', dpi=400)
+figure.savefig('./public/graphs/Correlation-Matrix-Plot.png', dpi=400)

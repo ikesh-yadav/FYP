@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const fs= require('fs')
+const { spawn } = require('child_process');
 let formidable = require('formidable');
 
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/submit', (req, res) => {
+  console.log("Received a post to /submit");
   let form = new formidable.IncomingForm();
   form.parse(req, function (err, fields, files) {
     //console.log(files)
@@ -30,26 +32,25 @@ app.post('/submit', (req, res) => {
     fs.rename(tfdoldpath, "./data/TeacherFeedback2.csv", function (err) {
       if (err) throw err;
     });
-   
   })
   
   var dataToSend;
   // spawn new child process to call the python script
-  const python = spawn('python', ['script1.py']);
+  const python = spawn('python', ['final_year_project.py']);
   // collect data from script
   python.stdout.on('data', function (data) {
     console.log('Pipe data from python script ...');
     dataToSend = data.toString();
+    console.log(dataToSend);
   });
   // in close event we are sure that stream from child process is closed
   python.on('close', (code) => {
   console.log(`child process close all stdio with code ${code}`);
-  // send data to browser
-  res.send(dataToSend)
+    //send data to browser
+    //res.send(dataToSend)
+    res.status(200);
   });
-
-  res.write('File uploaded and moved!');
-  return res.end();
+  
 })
 
 app.listen(port, () => {
