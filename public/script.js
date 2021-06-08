@@ -65,7 +65,7 @@ jQuery(document).ready(function($){
 		var btnRadius = btn.width()/2,
 			left = btn.offset().left + btnRadius,
 			top = btn.offset().top + btnRadius - $(window).scrollTop(),
-			scale = scaleValue(top, left, btnRadius, $(window).height(), $(window).width());
+			scale = scaleValue(top, left, btnRadius, $(window).width(), $(window).height());
 
 		btn.css('position', 'fixed').velocity({
 			top: top - btnRadius,

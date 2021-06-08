@@ -1,5 +1,11 @@
 /* Styles go here */
 
+:root {
+  --primary:white;
+  --primary-bg: #2ecc71;
+  --accent: #3498db;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -11,6 +17,30 @@ html, body {
 body {
   /* color: #1e5cde; */
   align-items: center;
+}
+
+.main-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-bg);
+}
+
+.main-form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.flex-items {
+  padding:10px 0;
+  min-width:60%;
+  align-items: center;
+  background-color: white;
 }
 
 table {
@@ -39,7 +69,6 @@ table {
   }
   
   .process-btn {
-    background-color: #2ecc71;
     border:none;
   }
 
@@ -48,28 +77,15 @@ table {
   }
   input[type=file].upload-btn::file-selector-button {
     align-items: center;
-    background-color: #3498db;
+    background-color: var(--accent);
     border: none;
   }
 
   .header {
-    color : #1e5cde;
+    padding-top:5vh;
     text-align: center;
     padding:2vh;
-    margin-bottom: 1vh solid black;
-    background-color: #121212;
-  }
-
-  .container {
-    padding-top: 2vh;
-  }
-
-  .container>* {
-    padding:0 auto;
-  }
-
-  .correlation {
-    /* dummy */
+    margin-bottom: 1px solid black;
   }
 
   .graph {
@@ -77,7 +93,6 @@ table {
     width: 50vw;
     height: 50vw;
   }
-
 
 
 /* 3rd party css */
@@ -239,19 +254,7 @@ body.overflow-hidden {
   -moz-transition: visibility 0s 0.3s, opacity 0.3s 0s, z-index 0s 0.3s;
   transition: visibility 0s 0.3s, opacity 0.3s 0s, z-index 0s 0.3s;
 }
-.cd-modal::after {
-  /* gradient overlay at bottom of modal window */
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  pointer-events: none;
-  background: transparent;
-  background: -webkit-linear-gradient( bottom , #34383c, rgba(52, 56, 60, 0));
-  background: linear-gradient(to top, #34383c, rgba(52, 56, 60, 0));
-}
+
 .cd-modal .cd-modal-content {
   height: 100%;
   width: 100%;
@@ -294,12 +297,14 @@ body.overflow-hidden {
 .cd-modal-action .btn, .cd-modal-action .cd-modal-bg {
   display: inline-block;
   height: 4em;
-  background-color: #34383c;
+  background-color: white;
+  color:black;
+  border:2px solid var(--primary-bg);
 }
 .cd-modal-action .btn {
   width: 12.5em;
+  
   border-radius: 5em;
-  color: #ffffff;
   line-height: 4em;
   white-space: nowrap;
   font-weight: 700;
