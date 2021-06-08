@@ -11,7 +11,7 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Raleway';
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -22,7 +22,10 @@ body {
 .main-page {
   width: 100vw;
   height: 100vh;
-  background-color: var(--primary-bg);
+  background: #fd746c;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ff9068, #fd746c);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .main-form {
@@ -40,7 +43,6 @@ body {
   padding:10px 0;
   min-width:60%;
   align-items: center;
-  background-color: white;
 }
 
 table {
@@ -73,8 +75,20 @@ table {
   }
 
   .upload-btn {
+    width:40%;
+    border-radius: 5px;
+    padding:10px;
     align-items: center;
+    background-color: var(--accent);
+    text-align:center ;
+    opacity: 0.9;
   }
+
+  .upload-btn:hover{
+    opacity:1.5;
+    background-color: var(--primary-bg);
+  }
+
   input[type=file].upload-btn::file-selector-button {
     align-items: center;
     background-color: var(--accent);
@@ -82,10 +96,8 @@ table {
   }
 
   .header {
-    padding-top:5vh;
     text-align: center;
-    padding:2vh;
-    margin-bottom: 1px solid black;
+    padding:3vh;
   }
 
   .graph {
@@ -299,12 +311,11 @@ body.overflow-hidden {
   height: 4em;
   background-color: white;
   color:black;
-  border:2px solid var(--primary-bg);
 }
 .cd-modal-action .btn {
   width: 12.5em;
   
-  border-radius: 5em;
+  border-radius: 5px;
   line-height: 4em;
   white-space: nowrap;
   font-weight: 700;

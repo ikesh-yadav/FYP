@@ -12,23 +12,17 @@
 			<div class="main-page">
 				<header class="header"><h2>Student feedback summarization</h2></header>
 				<form id="main-form" class="flex-container main-form" >
-					<div class="flex-items">
-						<label for="cie_file">
-							Select Student answer file: 
-							<input class="upload-btn" type="file" name="cie_file"/>
-						</label>
+					<div class="flex-items flex-container">
+						<label class="upload-btn" for="cie_file" >Upload Student Answer file</label>	
+						<input id="cie_file"  type="file" name="cie_file" style="visibility: hidden;"/>
 					</div>
-					<div class="flex-items">
-						<label for="student_feedback_file">
-							Select Student Feedback file: 
-							<input class="upload-btn" type="file" name="student_feedback_file">
-						</label>
+					<div class="flex-items flex-container">
+						<label class="upload-btn"for="student_feedback_file">Upload Student Feedback file</label>
+						<input id="student_feedback_file" type="file" name="student_feedback_file" style="visibility: hidden;"/>
 					</div>
-					<div class="flex-items">
-						<label for="teacher_feedback_file">
-							Select teacher Feedback file: 
-							<input class="upload-btn" type="file" name="teacher_feedback_file">
-						</label>
+					<div class="flex-items flex-container">
+						<label class="upload-btn"for="teacher_feedback_file">Upload Teacher Feedback file</label>
+						<input id="teacher_feedback_file" type="file" name="teacher_feedback_file" style="visibility: hidden;"/>
 					</div>
 					<br>
 					<div class="cd-modal-action">
