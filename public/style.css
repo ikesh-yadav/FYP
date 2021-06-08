@@ -22,10 +22,12 @@ body {
 .main-page {
   width: 100vw;
   height: 100vh;
-  background: #fd746c;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ff9068, #fd746c);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  
+  background-image: url("./4028064-nb.png"), linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+  background-position: center;
+  background-size:cover;
+  /* background: #FEAC5E;  /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /*Chrome 10-25, Safari 5.1-6 */
 }
 
 .main-form {
@@ -39,9 +41,15 @@ body {
   align-items:center;
 }
 
+.card {
+  border:3px solid black;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
 .flex-items {
   padding:10px 0;
-  min-width:60%;
+  min-width:40%;
   align-items: center;
 }
 
@@ -68,6 +76,16 @@ table {
   
   tr:nth-child(even) {
     background: #eeeeee;
+  }
+
+  .filename {
+    text-align: center;
+  }
+
+  .btn {
+    text-decoration: none;
+    border:none;
+    padding:10px 20px;
   }
   
   .process-btn {
@@ -97,7 +115,7 @@ table {
 
   .header {
     text-align: center;
-    padding:3vh;
+    padding:25vh 3vh 3vh 3vh;
   }
 
   .graph {
@@ -312,6 +330,11 @@ body.overflow-hidden {
   background-color: white;
   color:black;
 }
+
+.float {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .cd-modal-action .btn {
   width: 12.5em;
   

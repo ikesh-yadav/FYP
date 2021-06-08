@@ -12,20 +12,21 @@
 			<div class="main-page">
 				<header class="header"><h2>Student feedback summarization</h2></header>
 				<form id="main-form" class="flex-container main-form" >
-					<div class="flex-items flex-container">
-						<label class="upload-btn" for="cie_file" >Upload Student Answer file</label>	
-						<input id="cie_file"  type="file" name="cie_file" style="visibility: hidden;"/>
+					<div class="flex-items flex-container card">
+						<label class="upload-btn float" for="cie_file" >Upload Student Answer file</label>	
+						<input id="cie_file"  type="file" name="cie_file" style="display: none;"/>
+						<label class="controls" id="cie_file_controls"></label>
 					</div>
-					<div class="flex-items flex-container">
-						<label class="upload-btn"for="student_feedback_file">Upload Student Feedback file</label>
-						<input id="student_feedback_file" type="file" name="student_feedback_file" style="visibility: hidden;"/>
+					<div class="flex-items flex-container card">
+						<label class="upload-btn float" for="student_feedback_file">Upload Student Feedback file</label>
+						<input id="student_feedback_file" type="file" name="student_feedback_file" style="display: none;"/>
 					</div>
-					<div class="flex-items flex-container">
-						<label class="upload-btn"for="teacher_feedback_file">Upload Teacher Feedback file</label>
-						<input id="teacher_feedback_file" type="file" name="teacher_feedback_file" style="visibility: hidden;"/>
+					<div class="flex-items flex-container card">
+						<label class="upload-btn float"for="teacher_feedback_file">Upload Teacher Feedback file</label>
+						<input id="teacher_feedback_file" type="file" name="teacher_feedback_file" style="display: none;"/>
 					</div>
 					<br>
-					<div class="cd-modal-action">
+					<div class="cd-modal-action float">
 						<input id="process-btn" class="process-btn btn" data-type="modal-trigger" type="submit" value="Process">
 						<span id="cs-modal-bg" class="cd-modal-bg"></span>
 					</div> 
@@ -102,7 +103,6 @@
 		<script src='https://cdn.jsdelivr.net/npm/papaparse@5.2.0/papaparse.min.js'></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 		<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/velocity.min.js'></script>
-		<!-- <script  src="function.js"></script> -->
 		<script src="script.js" ></script>
         
       	

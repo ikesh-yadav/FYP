@@ -1,5 +1,22 @@
 jQuery(document).ready(function($){
 
+	$('#cie_file').on('change',(event) => {
+		let uploader = document.querySelector('#cie_file');
+		//console.log(uploader.files[0].name);
+		console.log($('#cie_file_controls'));
+
+		var controls = `
+			<label class="filename">${uploader.files[0].name}</label>
+			<br>
+			<input class="btn" type="button" value="View" />
+			<input class="btn" type="button" value="Remove" />
+		`
+
+		$('#cie_file_controls').html(controls);
+		//document.querySelector('#cie_file_controls').innerHTML = uploader.files[0].name;
+
+	})
+
 	// onsubmit show the result window with loading
 	$('#main-form').on('submit', (event)=>{
 		event.preventDefault();
@@ -270,20 +287,19 @@ class TableCsv {
   }
 }
 
-// const tableRoot = document.querySelector("#csvRoot");
-// const csvFileInput = document.querySelector("#csvFileInput");
-// const tableCsv = new TableCsv(tableRoot);
+const tableRoot = document.querySelector("#csvRoot");
+const csvFileInput = document.querySelector("#cie_file");
+const tableCsv = new TableCsv(tableRoot);
 
-// console.log("hello");
-
-// csvFileInput.addEventListener("change", (e) => {
-//   Papa.parse(csvFileInput.files[0], {
-//     delimiter: ",",
-//     skipEmptyLines: true,
-//     complete: (results) => {
-//       tableCsv.update(results.data.slice(1), results.data[0]);
-//     }
-//   });
-// });
+csvFileInput.addEventListener("change", (e) => {
+	console.log(csvFileInput);
+  Papa.parse(csvFileInput.files[0], {
+    delimiter: ",",
+    skipEmptyLines: true,
+    complete: (results) => {
+      tableCsv.update(results.data.slice(1), results.data[0]);
+    }
+  });
+});
 
 
