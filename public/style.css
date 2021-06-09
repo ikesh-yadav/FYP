@@ -17,15 +17,19 @@ html, body {
 body {
   /* color: #1e5cde; */
   align-items: center;
+  background-image: url("./4028064-nb.png"), linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
 }
 
 .main-page {
   width: 100vw;
   height: 100vh;
   
-  background-image: url("./4028064-nb.png"), linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+  /* background-image: url("./4028064-nb.png"), linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
   background-position: center;
-  background-size:cover;
+  background-size:cover; */
   /* background: #FEAC5E;  /* fallback for old browsers */
   /* background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /*Chrome 10-25, Safari 5.1-6 */
 }
@@ -53,44 +57,44 @@ body {
   align-items: center;
 }
 
-table {
-    border-collapse: collapse;
-    border-radius: 5px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    font-family: "Quicksand", sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-  }
-  
-  th {
-    background: #009578;
-    color: #ffffff;
-    text-align: left;
-  }
-  
-  th,
-  td {
-    padding: 10px 20px;
-  }
-  
-  tr:nth-child(even) {
-    background: #eeeeee;
-  }
+.filename {
+  display: block;
+  text-align: center;
+  margin: 5px 0;
+}
 
-  .filename {
-    text-align: center;
-  }
+.btn {
+  color: white;
+  text-decoration: none;
+  border:none;
+  padding:10px 20px;
+  border-radius: 5px;
+}
 
-  .btn {
-    text-decoration: none;
-    border:none;
-    padding:10px 20px;
-  }
-  
-  .process-btn {
-    border:none;
-  }
+
+.controls {
+  text-align: center;
+  padding: 1px;
+}
+
+.view {
+  background-color: #59B85E;
+}
+
+.remove {
+  background-color: #DC524C;
+}
+
+.process-btn {
+  border:none;
+}
+.process-btn:disabled {
+  opacity: 0.7;
+}
+
+.process-btn::after{
+  content: "...";
+}
 
   .upload-btn {
     width:40%;
@@ -115,14 +119,20 @@ table {
 
   .header {
     text-align: center;
-    padding:25vh 3vh 3vh 3vh;
+    padding:5vh 3vh 3vh 3vh;
+    color:#E74C3C;
   }
 
   .graph {
     align-items: center;
-    width: 50vw;
-    height: 50vw;
+    max-width:100%;
+    height:auto;
+    transition: all .2s ease-out;
   }
+
+  /* .correlation {
+    width
+  } */
 
 
 /* 3rd party css */
@@ -134,13 +144,14 @@ ul, li {
   list-style: none;
 }
 
-.icon {
+/* .icon {
+  max-width: 70vw;
   transition: all .2s ease-out;
 }
 
 .icon.active {
   fill: #E74C3C;
-}
+} */
 
 #results-wrapper {
   width: 100vw;
@@ -182,7 +193,7 @@ ul, li {
 }
 
 #border {
-  height: 288px;
+  height: 342px;
   width: 1px;
   background-color: rgba(51, 51, 51, 0.2);
 }
@@ -219,12 +230,21 @@ ul, li {
   transition: all .4s ease-in-out;
 }
 
+#border #line.five {
+  width: 5px;
+  height: 54px;
+  background-color: #E74C3C;
+  margin-left: -2px;
+  margin-top: 251px;
+  transition: all .4s ease-in-out;
+}
+
 #right-side {
-  height: 100vh;
-  width: 80%;
+  height: 80vw;
+  width: 80vw;
   overflow: hidden;
 }
-#right-side #first, #right-side #second, #right-side #third, #right-side #fourth {
+#right-side #first, #right-side #second, #right-side #third, #right-side #fourth, #right-side #fifth {
   position: absolute;
   height: inherit;
   width: inherit;
@@ -236,20 +256,21 @@ ul, li {
   justify-content: center;
   flex-direction: column;
 }
-#right-side #first h1, #right-side #second h1, #right-side #third h1, #right-side #fourth h1 {
+#right-side #first h1, #right-side #second h1, #right-side #third h1, #right-side #fourth h1, #right-side #fifth h1 {
   font-weight: 800;
   color: #333;
 }
-#right-side #first p, #right-side #second p, #right-side #third p, #right-side #fourth p {
+#right-side #first p, #right-side #second p, #right-side #third p, #right-side #fourth p, #right-side #fifth p {
   color: #333;
   font-weight: 500;
   padding-left: 30px;
   padding-right: 30px;
 }
-#right-side #first.active, #right-side #second.active, #right-side #third.active, #right-side #fourth.active {
+#right-side #first.active, #right-side #second.active, #right-side #third.active, #right-side #fourth.active, #right-side #fifth.active {
   margin-top: 0px;
   opacity: 1;
   transition: all .6s ease-in-out;
+  z-index: 100;
 }
 
 
@@ -339,7 +360,6 @@ body.overflow-hidden {
   width: 12.5em;
   
   border-radius: 5px;
-  line-height: 4em;
   white-space: nowrap;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
@@ -385,7 +405,7 @@ body.overflow-hidden {
 
 .cd-modal-close {
   position: fixed;
-  z-index: 1;
+  z-index: 101;
   top: 20px;
   right: 5%;
   height: 50px;

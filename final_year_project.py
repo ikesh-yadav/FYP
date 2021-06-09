@@ -273,7 +273,7 @@ def draw_graph(avg_list):
   plot.ylabel("Average Feedback Rating")
   plot.title("Class Feedback Rating Topic Wise")
   #plot.show()
-  plot.savefig('./graphs/bar_chart.png',dpi=400)
+  plot.savefig('./public/graphs/bar_chart.png',dpi=400)
 #print(s_fd)
 ss_fd = copy.deepcopy(s_fd)
 avg_list = feedback_summarization_class_wise(ss_fd)
@@ -542,5 +542,5 @@ def correlation_mat():
   ax.set_title('Correlation Matrix Plot')
   # Uncomment for saving/downloading the Heatmap 
   figure = ax.get_figure()    
-  figure.savefig('Correlation-Matrix-Plot.png', dpi=400)
+  figure.savefig('./public/graphs/Correlation-Matrix-Plot.png', dpi=400)
 correlation_mat()
