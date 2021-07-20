@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/submit', (req, res) => {
-  console.log("Received a post to /submit");
+  console.log("Post /submit");
   const form = new formidable.IncomingForm();
   form.parse(req, function (err, fields, files) {
     //console.log(files)
@@ -58,5 +58,5 @@ app.post('/submit', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`App listening at Port:${port}`)
 })
