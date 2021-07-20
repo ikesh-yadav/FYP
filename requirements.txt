@@ -1,7 +1,3 @@
-sys
-copy
-string
-os
 pydotplus
 io
 sklearn
