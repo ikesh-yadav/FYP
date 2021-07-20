@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 let openImageNewTab = (event)=>{
 	console.log("hello");
 	console.log('image');
@@ -191,6 +193,12 @@ jQuery(document).ready(function($){
 				console.log(err);
 				window.alert("Server was unable to process the request, try again");
 			} else {
+				if(!response.status !== 200){
+					console.log(err);
+					window.alert("Server was unable to process the request, try again");
+					process_btn.disabled = false;
+					return;
+				}
 				console.log("received response");
 				//trigger the animation - open modal window
 				var actionBtn = $('#process-btn'),
