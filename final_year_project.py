@@ -12,8 +12,8 @@ import pydotplus
 from io import StringIO
 from sklearn.tree import export_graphviz
 from sklearn.tree import DecisionTreeClassifier
-from numpy import loadtxt
 from sklearn.model_selection import train_test_split
+from numpy import loadtxt
 import seaborn as sns
 import matplotlib.pyplot as plot
 import pandas as pd
