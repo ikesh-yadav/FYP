@@ -11,6 +11,63 @@ let RemoveHandler = (event) => {
 	$(viewbtn).parent().get(0).innerHTML="";
 }
 
+let ShowStudentUnderstandingResult = ()=>{
+	ShowResult("./results/Student_understanding.csv");
+}
+let ShowDifficultyMetricResult = ()=>{
+	ShowResult("./results/Difficulty_metric.csv");
+}
+let ShowResult = (src) => {
+	var w = window.open("", "popupWindow", "width=600, height=400, scrollbars=yes");
+	let table = w.document.createElement("table");
+	table.id = "csvRoot";
+	w.document.body.append(table);
+
+	let style = w.document.createElement('style')
+	style.innerHTML = `
+	table {
+		border-collapse: collapse;
+		border-radius: 5px;
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+		overflow: hidden;
+		font-family: "Quicksand", sans-serif;
+		font-weight: bold;
+		font-size: 14px;
+	  }
+	  
+	  th {
+		background: #009578;
+		color: #ffffff;
+		text-align: left;
+	  }
+	  
+	  th,
+	  td {
+		padding: 10px 20px;
+	  }
+	  
+	  tr:nth-child(even) {
+		background: #eeeeee;
+	  }
+	
+	`;
+
+	w.document.head.append(style);
+
+	const tableRoot = w.document.querySelector("#csvRoot");
+	const tableCsv = new TableCsv(tableRoot);
+
+	Papa.parse(src , {
+		download:true,
+		delimiter: ",",
+		skipEmptyLines: true,
+		complete: (results) => {
+			console.log(results);
+			tableCsv.update(results.data.slice(1), results.data[0]);
+		}
+	});
+}
+
 let ViewHandler = (event) => {
 	let viewbtn = event.target;
 	let fileInput = $(viewbtn).parent().prev('.fileInput').get(0);
@@ -63,6 +120,8 @@ let ViewHandler = (event) => {
 		}
 	});
 }
+
+
 jQuery(document).ready(function($){
 
 
@@ -86,7 +145,7 @@ jQuery(document).ready(function($){
 	$('#cie_file').on('change', FileChangeHandler);
 	$('#student_feedback_file').on('change', FileChangeHandler);
 	$('#teacher_feedback_file').on('change', FileChangeHandler);
-	$('#answer_key_file').on('change', FileChangeHandler);
+	$('#key_file').on('change', FileChangeHandler);
 
 
 	$('#process-btn').on('click', (event) => {

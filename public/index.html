@@ -27,8 +27,8 @@
 						<label class="controls"></label>
 					</div>
 					<div class="flex-items flex-container card">
-						<label class="upload-btn float"for="answer_key_file">Upload Answer Key file</label>
-						<input id="answer_key_file" class="fileInput" required type="file" name="answer_key_file" style="display: none;"/>
+						<label class="upload-btn float"for="key_file">Upload Answer Key file</label>
+						<input id="key_file" class="fileInput" required type="file" name="key_file" style="display: none;"/>
 						<label class="controls"></label>
 					</div>
 					<br>
@@ -52,12 +52,12 @@
 								<li class="pay">
 									<div class="icon">
 									</div>
-									Decision tree 1
+									Student understanding rating
 								</li>
 								<li class="wrap">
 									<div class="icon">
 									</div>
-									Decision tree 2
+									Topic difficulty metric
 								</li>
 								<li class="ship">
 									<div class="icon">
@@ -84,12 +84,12 @@
 							</div>
 							<div id="second" >
 								<div class="icon">
-									<img class="graph" src="graphs/tree1.png" onclick="openImageNewTab(event)"></img>
+									<input class="btn view" type="button" value="Show Student understanding" onclick="ShowStudentUnderstandingResult()"/>
 								</div>
 							</div>
 							<div id="third">
 								<div class="icon">
-									<img class="graph" src="graphs/tree3.png" onclick="openImageNewTab(event)"></img>
+									<input class="btn view" type="button" value="Show Student understanding" onclick="ShowDifficultyMetricResult()"/>
 								</div>
 							</div>
 							<div id="fourth" >
@@ -97,14 +97,14 @@
 									<img class="graph correlation" src="graphs/Correlation-Matrix-Plot.png" onclick="openImageNewTab(event)"></img>
 								</div>
 							</div>
-							<div id="fifth">
+							<!-- <div id="fifth">
 								<h1>Inferences</h1>
 								<div class="icon"></div>
 								<p>Inferrence 1</p>
 								<p>Inferrence 1</p>
 								<p>Inferrence 1</p>
 								<p>Inferrence 1</p>
-							</div>
+							</div> -->
 						</div>
 					</div>	
 				</div>

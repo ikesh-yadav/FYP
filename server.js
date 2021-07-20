@@ -17,12 +17,13 @@ app.get('/', (req, res) => {
 
 app.post('/submit', (req, res) => {
   console.log("Received a post to /submit");
-  let form = new formidable.IncomingForm();
+  const form = new formidable.IncomingForm();
   form.parse(req, function (err, fields, files) {
     //console.log(files)
-    let cieoldpath = files.cie_file.path;
-    let sfdoldpath = files.student_feedback_file.path;
-    let tfdoldpath = files.teacher_feedback_file.path;
+    const  cieoldpath = files.cie_file.path;
+    const sfdoldpath = files.student_feedback_file.path;
+    const tfdoldpath = files.teacher_feedback_file.path;
+    const keyoldpath = files.key_file.path;
     fs.rename(cieoldpath, "./data/cie1.csv", function (err) {
       if (err) throw err;
     });
@@ -30,6 +31,9 @@ app.post('/submit', (req, res) => {
       if (err) throw err;
     });
     fs.rename(tfdoldpath, "./data/TeacherFeedback2.csv", function (err) {
+      if (err) throw err;
+    });
+    fs.rename(keyoldpath, "./data/key.csv", function (err) {
       if (err) throw err;
     });
   })
