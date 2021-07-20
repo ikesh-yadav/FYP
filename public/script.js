@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 let openImageNewTab = (event)=>{
 	console.log("hello");
 	console.log('image');
