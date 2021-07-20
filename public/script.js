@@ -184,11 +184,13 @@ jQuery(document).ready(function($){
 			mode : 'same-origin',
 		    credentials: 'same-origin' ,
 		    body : formData
-		}).then((data, err) => {
+		}).then((Response, err) => {
 		 	clearInterval(processing);
 		 	process_btn.value="Process";
-			if(err) console.log(err);
-			else {
+			if(err) {
+				console.log(err);
+				window.alert("Server was unable to process the request, try again");
+			} else {
 				console.log("received response");
 				//trigger the animation - open modal window
 				var actionBtn = $('#process-btn'),

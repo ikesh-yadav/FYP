@@ -51,7 +51,8 @@ app.post("/submit", (req, res) => {
     console.log(`child process close all stdio with code ${code}`);
     //send data to browser
     //res.send(dataToSend)
-    res.status(200).send("success");
+    if(code===0) res.status(200).send("success");
+    else res.status(500).send("Unable to process request")
   });
 });
 
