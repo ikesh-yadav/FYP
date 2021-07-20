@@ -184,7 +184,7 @@ jQuery(document).ready(function($){
 			mode : 'same-origin',
 		    credentials: 'same-origin' ,
 		    body : formData
-		}).then((Response, err) => {
+		}).then((response, err) => {
 		 	clearInterval(processing);
 		 	process_btn.value="Process";
 			if(err) {
