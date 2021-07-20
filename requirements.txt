@@ -1,1 +1,12 @@
+sys
+copy
+string
+os
+pydotplus
+io
+sklearn
+numpy
+seaborn
+matplotlib
 pandas
+pylab
