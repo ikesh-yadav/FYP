@@ -1,4 +1,5 @@
 pydotplus
+graphviz
 sklearn
 numpy
 seaborn
